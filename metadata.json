@@ -1,0 +1,8 @@
+{
+	"name": "Hello World",
+	"author": "Marien Fressinaud",
+	"description": "It is a test extension.",
+	"version": 0.1,
+	"entrypoint": "HelloWorld",
+	"type": "user"
+}
