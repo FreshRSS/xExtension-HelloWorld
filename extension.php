@@ -8,5 +8,13 @@ class HelloWorldExtension extends Minz_Extension {
 		$this->registerController('hello');
 		$this->registerController('index');
 		$this->registerViews();
+
+		$this->registerHook('entry_before_insert',
+		                    array('HelloWorldExtension', 'setHelloWorldHook'));
+	}
+
+	public static function setHelloWorldHook($entry) {
+		$entry->_content('Hello world!');
+		return $entry;
 	}
 }
