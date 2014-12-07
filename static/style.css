@@ -1,23 +1,23 @@
 .content {
-	margin: 0 auto 0 70px !important;
+	margin: 0 auto 0 70px;
 }
 .content h1.title {
 	display: none;
 }
 
-.item.website {
+.flux .item.website {
 	text-align: right;
 }
-.item.favicon {
+.flux .item.favicon {
 	width: 40px;
 	text-align: center;
 }
-.item.date {
-	text-align: left !important;
+.flux .item.date {
+	text-align: left;
 }
 
 @media(max-width: 840px) {
 	.no-mobile {
-		display: none !important;
+		display: none;
 	}
 }
