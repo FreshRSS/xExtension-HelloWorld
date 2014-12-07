@@ -10,11 +10,22 @@ class HelloWorldExtension extends Minz_Extension {
 		$this->registerViews();
 
 		$this->registerHook('entry_before_insert',
-		                    array('HelloWorldExtension', 'setHelloWorldHook'));
+		                    array('HelloWorldExtension', 'setHelloWorldContentHook'));
+		$this->registerHook('entry_before_display',
+		                    array('HelloWorldExtension', 'setHelloWorldTitleHook'));
 	}
 
-	public static function setHelloWorldHook($entry) {
+	public static function setHelloWorldContentHook($entry) {
 		$entry->_content('Hello world!');
+		return $entry;
+	}
+
+	private static $hello_world_title_odd = false;
+	public static function setHelloWorldTitleHook($entry) {
+		if (self::$hello_world_title_odd) {
+			$entry->_title($entry->link());
+		}
+		self::$hello_world_title_odd = !self::$hello_world_title_odd;
 		return $entry;
 	}
 }
