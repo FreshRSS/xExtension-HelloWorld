@@ -1,0 +1,23 @@
+.content {
+	margin: 0 auto 0 70px !important;
+}
+.content h1.title {
+	display: none;
+}
+
+.item.website {
+	text-align: right;
+}
+.item.favicon {
+	width: 40px;
+	text-align: center;
+}
+.item.date {
+	text-align: left !important;
+}
+
+@media(max-width: 840px) {
+	.no-mobile {
+		display: none !important;
+	}
+}
