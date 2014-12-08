@@ -6,6 +6,7 @@
 }
 
 .flux .item.website {
+	padding: 0 10px 0 0;
 	text-align: right;
 }
 .flux .item.favicon {
@@ -17,7 +18,11 @@
 }
 
 @media(max-width: 840px) {
-	.no-mobile {
+	.flux .item.website {
 		display: none;
+	}
+
+	.content {
+		margin: 0;
 	}
 }

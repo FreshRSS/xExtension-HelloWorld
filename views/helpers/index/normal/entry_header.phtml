@@ -33,9 +33,9 @@
 			$feed = FreshRSS_Feed::example();
 		}
 	}
-	?><li class="item title"><a target="_blank" href="<?php echo $this->entry->link(); ?>"><?php echo $this->entry->title(); ?></a></li>
+	?><li class="item favicon"><a href="<?php echo _url('index', 'index', 'get', 'f_' . $feed->id()); ?>"><img class="favicon" src="<?php echo $feed->favicon(); ?>" alt="✇" /></a></li>
+	<li class="item title"><a target="_blank" href="<?php echo $this->entry->link(); ?>"><?php echo $this->entry->title(); ?></a></li>
 	<li class="item website no-mobile"><a href="<?php echo _url('index', 'index', 'get', 'f_' . $feed->id()); ?>"><?php echo $feed->name(); ?></a></li>
-	<li class="item favicon"><a href="<?php echo _url('index', 'index', 'get', 'f_' . $feed->id()); ?>"><img class="favicon" src="<?php echo $feed->favicon(); ?>" alt="✇" /></a></li>
 	<?php if ($topline_date) { ?><li class="item date"><?php echo $this->entry->date(); ?> </li><?php } ?>
 	<?php if ($topline_link) { ?><li class="item link"><a target="_blank" href="<?php echo $this->entry->link(); ?>"><?php echo _i('link'); ?></a></li><?php } ?>
 </ul>
