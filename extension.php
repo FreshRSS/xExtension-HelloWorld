@@ -13,6 +13,8 @@ class HelloWorldExtension extends Minz_Extension {
 		//                     array('HelloWorldExtension', 'setHelloWorldContentHook'));
 		$this->registerHook('entry_before_display',
 		                    array('HelloWorldExtension', 'setHelloWorldTitleHook'));
+		$this->registerHook('feed_before_insert',
+		                    array('HelloWorldExtension', 'noMoreFeedsHook'));
 	}
 
 	public static function setHelloWorldContentHook($entry) {
@@ -27,5 +29,16 @@ class HelloWorldExtension extends Minz_Extension {
 		}
 		self::$hello_world_title_odd = !self::$hello_world_title_odd;
 		return $entry;
+	}
+
+	public static function noMoreFeedsHook($feed) {
+		$feedDAO = FreshRSS_Factory::createFeedDao();
+		$feeds = $feedDAO->listFeeds();
+
+		if (count($feeds) >= 10) {
+			return null;
+		} else {
+			return $feed;
+		}
 	}
 }
