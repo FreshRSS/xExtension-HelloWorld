@@ -5,6 +5,8 @@ class HelloWorldExtension extends Minz_Extension {
 		Minz_View::appendStyle($this->getFileUrl('style.css', 'css'));
 		Minz_View::appendScript($this->getFileUrl('script.js', 'js'));
 
+		$this->registerTranslates();
+
 		$this->registerController('hello');
 		$this->registerController('index');
 		$this->registerViews();
