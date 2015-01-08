@@ -19,6 +19,10 @@ class HelloWorldExtension extends Minz_Extension {
 		                    array('HelloWorldExtension', 'noMoreFeedsHook'));
 	}
 
+	public function handleConfigureAction() {
+		$this->registerTranslates();
+	}
+
 	public static function setHelloWorldContentHook($entry) {
 		$entry->_content('Hello world!');
 		return $entry;
