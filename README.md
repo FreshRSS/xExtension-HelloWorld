@@ -20,3 +20,4 @@ As showcase it will manipulate some little things:
 - the “About” page content will be overwritten
 - the “Save” button titles will be changed
 - the normal view article list will be changed
+- it loads a CSS and a JavaScript file
