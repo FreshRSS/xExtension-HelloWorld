@@ -1,4 +1,19 @@
-<div class="post content">
-	<h1>About</h1>
-	<p>A new about page!</p>
-</div>
+<?php
+	/** @var FreshRSS_View $this */
+	if (FreshRSS_Auth::hasAccess()) {
+		$this->partial('aside_configure');
+	}
+?>
+
+<main class="post content<?= !FreshRSS_Auth::hasAccess() ? ' centered' : ''?>">
+	<h1><?= _t('ext.hello_world.about.title')?></h1>
+	<p><?= _t('ext.hello_world.about.content')?></p>
+</main>
+
+<?php if (!FreshRSS_Auth::hasAccess()) { ?>
+<footer class="main-footer">
+	<?php if (file_exists(TOS_FILENAME)) { ?>
+		<a href="<?= _url('index', 'tos') ?>"><?= _t('index.tos.title')?></a>
+	<?php } ?>
+</footer>
+<?php } ?>

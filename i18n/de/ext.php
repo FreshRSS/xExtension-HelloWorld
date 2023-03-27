@@ -11,10 +11,11 @@
 /******************************************************************************/
 
 return array(
-	'action' => array(
-		'submit' => 'OK Hello World!',
-	),
-	'menu' => array(
-		'about' => 'About FreshRSS and Hello World',
+	'hello_world' => array(
+		'no_configuration' => 'Hier kann leider nichts konfiguriert werden!',
+		'about' => array (
+			'title' => 'Über: Hello World FreshRSS',
+			'content' => 'Eine neue „Über“ Seite, die von der Erweiterung „xExtension-HelloWorld“ überschrieben wurde'
+		),
 	),
 );

@@ -12,9 +12,9 @@
 
 return array(
 	'action' => array(
-		'submit' => 'OK Hello World!',
+		'submit' => 'OK Hello World!',	// IGNORE
 	),
 	'menu' => array(
-		'about' => 'About FreshRSS and Hello World',
+		'about' => 'Über FreshRSS und Hello World',
 	),
 );
