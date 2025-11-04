@@ -15,6 +15,6 @@ return array(
 		'submit' => 'OK Hello World!',	// TODO
 	),
 	'menu' => array(
-		'about' => 'About FreshRSS and Hello World',	// TODO
+		'about' => 'À propos FreshRSS et « HelloWorld »',
 	),
 );
