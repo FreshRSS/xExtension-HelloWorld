@@ -15,7 +15,7 @@ return array(
 		'no_configuration' => 'Il n’y a rien à configurer dans cette extension, désolé !',
 	),
 	'about' => array (
-		'title' => 'About: Hello World FreshRSS',	// TODO
-		'content' => 'A new about page that was overwritten by the extension “xExtension-HelloWorld”'	// TODO
+		'title' => 'À propos : Hello World FreshRSS',
+		'content' => 'Une nouvelle page « À propos » qui a été modifiée par l’extension « xExtension-HelloWorld ».'
 	),
 );
