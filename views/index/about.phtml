@@ -1,10 +1,10 @@
 <?php
-	/** @var FreshRSS_View $this */
-	if (FreshRSS_Auth::hasAccess()) {
-		$this->partial('aside_configure');
-	}
+declare(strict_types=1);
+/** @var FreshRSS_View $this */
+if (FreshRSS_Auth::hasAccess()) {
+	$this->partial('aside_configure');
+}
 ?>
-
 <main class="post content<?= !FreshRSS_Auth::hasAccess() ? ' centered' : ''?>">
 	<h1><?= _t('ext.hello_world.about.title')?></h1>
 	<p><?= _t('ext.hello_world.about.content')?></p>

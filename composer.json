@@ -1,0 +1,74 @@
+{
+    "name": "freshrss.org/freshrss-hello-world",
+    "description": "Extension example for FreshRSS",
+    "type": "project",
+    "homepage": "https://github.com/FreshRSS/xExtension-HelloWorld/",
+    "license": "AGPL-3.0",
+    "support": {
+        "docs": "https://github.com/FreshRSS/xExtension-HelloWorld/blob/master/README.md",
+        "issues": "https://github.com/FreshRSS/xExtension-Hello-World/issues",
+        "source": "https://github.com/FreshRSS/xExtension-Hello-World/"
+    },
+    "keywords": [
+        "FreshRSS",
+        "extension"
+    ],
+    "require": {
+        "php": ">=8.1",
+        "ext-ctype": "*",
+        "ext-curl": "*",
+        "ext-dom": "*",
+        "ext-fileinfo": "*",
+        "ext-gmp": "*",
+        "ext-intl": "*",
+        "ext-json": "*",
+        "ext-libxml": "*",
+        "ext-mbstring": "*",
+        "ext-openssl": "*",
+        "ext-pcre": "*",
+        "ext-pdo": "*",
+        "ext-pdo_sqlite": "*",
+        "ext-session": "*",
+        "ext-simplexml": "*",
+        "ext-xml": "*",
+        "ext-xmlreader": "*",
+        "ext-zend-opcache": "*",
+        "ext-zip": "*",
+        "ext-zlib": "*"
+    },
+    "suggest": {
+        "ext-iconv": "*",
+        "ext-pdo_mysql": "*",
+        "ext-pdo_pgsql": "*"
+    },
+    "require-dev": {
+        "php": ">=8.1",
+        "ext-phar": "*",
+        "ext-tokenizer": "*",
+        "ext-xmlwriter": "*",
+        "phpstan/phpstan": "^2",
+        "phpstan/phpstan-strict-rules": "^2",
+        "squizlabs/php_codesniffer": "^4"
+    },
+    "scripts": {
+        "php-lint": "find . -type d -name 'vendor' -prune -o -name '*.php' -print0 | xargs -0 -n1 -P4 php -l 1>/dev/null",
+        "phtml-lint": "find . -type d -name 'vendor' -prune -o -name '*.phtml' -print0 | xargs -0 -n1 -P4 php -l 1>/dev/null",
+        "phpcs": "phpcs . -s",
+        "phpcbf": "phpcbf . -p -s",
+        "phpstan": "phpstan analyse .",
+        "test": [
+            "@php-lint",
+            "@phtml-lint",
+            "@phpcs",
+            "@phpstan"
+        ],
+        "fix": [
+            "@phpcbf"
+        ]
+    },
+    "config": {
+        "allow-plugins": {
+            "phpstan/extension-installer": false
+        }
+    }
+}

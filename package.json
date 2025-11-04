@@ -1,0 +1,34 @@
+{
+  "name": "freshrss-hello-world",
+  "type": "module",
+  "description": "Extension example for FreshRSS",
+  "homepage": "https://github.com/FreshRSS/xExtension-HelloWorld",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/FreshRSS/xExtension-HelloWorld/issues"
+  },
+  "keywords": [
+    "freshrss",
+    "extensions"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FreshRSS/xExtension-HelloWorld.git"
+  },
+  "license": "AGPL-3.0",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "eslint": "eslint .",
+    "eslint_fix": "eslint --fix .",
+    "test": "npm run eslint",
+    "fix": "npm run eslint_fix"
+  },
+  "devDependencies": {
+    "eslint": "^9.39.1",
+    "@eslint/js": "^9.39.1",
+    "globals": "^16.5.0",
+    "neostandard": "^0.12.2"
+  }
+}

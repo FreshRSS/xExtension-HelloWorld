@@ -1,9 +1,12 @@
 <?php
+declare(strict_types=1);
 
 class HelloWorldExtension extends Minz_Extension {
-	public function init() {
-		Minz_View::appendStyle($this->getFileUrl('style.css', 'css'));
-		Minz_View::appendScript($this->getFileUrl('script.js', 'js'));
+
+	#[\Override]
+	public function init(): void {
+		Minz_View::appendStyle($this->getFileUrl('style.css'));
+		Minz_View::appendScript($this->getFileUrl('script.js'));
 
 		$this->registerTranslates();
 
@@ -11,33 +14,29 @@ class HelloWorldExtension extends Minz_Extension {
 		$this->registerController('index');
 		$this->registerViews();
 
-		// $this->registerHook('entry_before_insert',
-		//                     array('HelloWorldExtension', 'setHelloWorldContentHook'));
-		$this->registerHook('entry_before_display',
-		                    array('HelloWorldExtension', 'setHelloWorldTitleHook'));
-		$this->registerHook('feed_before_insert',
-		                    array('HelloWorldExtension', 'noMoreFeedsHook'));
+		$this->registerHook('entry_before_display', [self::class, 'setHelloWorldTitleHook']);
+		$this->registerHook('feed_before_insert', [self::class, 'noMoreFeedsHook']);
 	}
 
-	public function handleConfigureAction() {
+	#[\Override]
+	public function handleConfigureAction(): void {
 		$this->registerTranslates();
 	}
 
-	public static function setHelloWorldContentHook($entry) {
-		$entry->_content('Hello world!');
-		return $entry;
-	}
+	public static function setHelloWorldTitleHook(FreshRSS_Entry $entry): FreshRSS_Entry {
+		static $hello_world_title_odd = false;
 
-	private static $hello_world_title_odd = false;
-	public static function setHelloWorldTitleHook($entry) {
-		if (self::$hello_world_title_odd) {
+		if ($hello_world_title_odd) {
 			$entry->_title('Hello world!');
 		}
-		self::$hello_world_title_odd = !self::$hello_world_title_odd;
+		$hello_world_title_odd = !$hello_world_title_odd;
 		return $entry;
 	}
 
-	public static function noMoreFeedsHook($feed) {
+	/**
+	 * @throws Minz_ConfigurationNamespaceException|Minz_PDOConnectionException
+	 */
+	public static function noMoreFeedsHook(FreshRSS_Feed $feed): ?FreshRSS_Feed {
 		$feedDAO = FreshRSS_Factory::createFeedDao();
 		$feeds = $feedDAO->listFeeds();
 
